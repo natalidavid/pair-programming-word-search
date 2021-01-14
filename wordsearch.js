@@ -1,3 +1,5 @@
+// pair programming by: @frameDoubt / @Sirrom84 / @natalidavid
+
 const wordSearch = (letters, word) => {
     const transpose = function (matrix) {
         let outerArray = [];
@@ -10,23 +12,21 @@ const wordSearch = (letters, word) => {
         }
         return outerArray;
     };
+    //use the transpose function form the previous exercise and modify it to get vertical values
     const transposedMatrix = transpose(letters);
-    // console.log(transposedMatrix);
     const verticalJoin = transposedMatrix.map(ls => ls.join(''));
-    // console.log(verticalJoin);
-    for (l of verticalJoin) {
+    for (let l of verticalJoin) {
         if (l.includes(word)) {
-            return true
+            return true;
         }
     }
-    const horizontalJoin = letters.map(ls => ls.join(''))
-    // console.log(horizontalJoin);
-    for (l of horizontalJoin) {
+    const horizontalJoin = letters.map(ls => ls.join(''));
+    for (let l of horizontalJoin) {
         if (l.includes(word)) {
             return true;
         }
     }
     return false;
-}
+};
 
 module.exports = wordSearch;
